@@ -28,6 +28,9 @@ namespace TestAutomation_subscribestctv.Pages
         By literewind = By.XPath("//div[normalize-space()='1 Day']");
         By classicrewind = By.XPath("//div[normalize-space()='For 7 days']");
         By permiumrewind = By.XPath("//div[normalize-space()='For 14 days']");
+        By premiumwatchsimultaneously = By.XPath("//div[normalize-space()='4 devices']");
+        By classicwatchsimultaneously = By.XPath("//div[normalize-space()='2 devices']");
+        By litewatchsimultaneously = By.XPath("//div[10]//div[2]//div[1]");
 
         public void KSAPage(string URL)
         {
@@ -89,17 +92,23 @@ namespace TestAutomation_subscribestctv.Pages
             Console.WriteLine("Device Access is: " + assertlitedeviceaccess);
 
             //SCROLL DOWN
-            scroll.ExecuteScript("window.scrollBy(0,350)");
+            scroll.ExecuteScript("window.scrollBy(0,450)");
 
 
             //Assert LITE Rewind
             string assertliterewind = CorePage.driver.FindElement(literewind).Text;
             Assert.AreEqual("1 Day", assertliterewind);
             Console.WriteLine("Rewind Day is: " + assertliterewind);
+
+            //Assert LITE Watch simultaneously
+
+            string assertlitewatchsimultaneously = CorePage.driver.FindElement(litewatchsimultaneously).Text;
+            Console.WriteLine("Watch simultaneously on  " + assertlitewatchsimultaneously);
             Console.WriteLine();
 
+
             //SCROLL UP
-            scroll.ExecuteScript("window.scrollBy(400,0)");
+            scroll.ExecuteScript("window.scrollBy(500,0)");
 
 
             //Assert CLASSIC PLAN NAME
@@ -128,18 +137,24 @@ namespace TestAutomation_subscribestctv.Pages
             Console.WriteLine("Device Access is: " + assertclassicdeviceaccess);
 
             //SCROLL DOWN
-            scroll.ExecuteScript("window.scrollBy(0,350)");
+            scroll.ExecuteScript("window.scrollBy(0,450)");
 
 
             //Assert CLASSIC Rewind
             string assertclassicrewind = CorePage.driver.FindElement(classicrewind).Text;
             Assert.AreEqual("For 7 days", assertclassicrewind);
             Console.WriteLine("Rewind Day is: " + assertclassicrewind);
+
+            //Assert CLASSIC Watch simultaneously
+
+            string assertclassicwatchsimultaneously = CorePage.driver.FindElement(classicwatchsimultaneously).Text;
+            Assert.AreEqual("2 devices", assertclassicwatchsimultaneously);
+            Console.WriteLine("Watch simultaneously on  " + assertclassicwatchsimultaneously);
             Console.WriteLine();
 
 
             //SCROLL UP
-            scroll.ExecuteScript("window.scrollBy(400,0)");
+            scroll.ExecuteScript("window.scrollBy(500,0)");
 
             //Assert PREMIUM PLAN NAME
             Console.WriteLine("Choose Your Plan");
@@ -169,17 +184,21 @@ namespace TestAutomation_subscribestctv.Pages
 
 
             //SCROLL DOWN
-            scroll.ExecuteScript("window.scrollBy(0,350)");
+            scroll.ExecuteScript("window.scrollBy(0,450)");
 
 
             //Assert PREMIUM Rewind
             string assertpremiumrewind = CorePage.driver.FindElement(permiumrewind).Text;
             Assert.AreEqual("For 14 days", assertpremiumrewind);
             Console.WriteLine("Rewind Day is: " + assertpremiumrewind);
+
+
+            //Assert PREMIUM Watch simultaneously
+   
+            string assertpremiumwatchsimultaneously = CorePage.driver.FindElement(premiumwatchsimultaneously).Text;
+            Assert.AreEqual("4 devices", assertpremiumwatchsimultaneously);
+            Console.WriteLine("Watch simultaneously on  " + assertpremiumwatchsimultaneously);
             Console.WriteLine();
-
-
-
 
         }
 
